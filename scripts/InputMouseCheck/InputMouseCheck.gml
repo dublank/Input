@@ -19,6 +19,10 @@ function __InputMouseCheckRaw(_binding)
     if not ((_binding == mb_left) || (_binding == mb_any) || (_binding == mb_none))
     {
         //Extended mouse buttons
+        // mb_wheel_* are not supported by device_mouse_check_button i think
+		if (_binding == mb_wheel_down) 	return mouse_wheel_down()
+		if (_binding == mb_wheel_up) 	return mouse_wheel_up()
+
         return device_mouse_check_button(0, _binding);
     }
     
